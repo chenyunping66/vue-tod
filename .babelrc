@@ -1,0 +1,8 @@
+{ //使用vue的render方法，以及vue-cli支持jsx的代码
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    "transfrom-vue-jsx" //专门转化vue的jsx代码
+  ]
+}
