@@ -1,8 +1,15 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-19 16:55:17
+ * @LastEditTime: 2019-08-20 17:13:16
+ * @LastEditors: Please set LastEditors
+ -->
 <template>
   <div class="help">
-    <span class="left">2 items left</span>
+    <span class="left">{{unFinshedTdoLength}} items left</span>
     <span class="tabs">
-      <span v-for="state in states" :key="state" :class="[state,fifter == state ? 'active' : '']" @click="toggleFilter(state)">
+      <span v-for="state in states" :key="state" :class="[state,filter == state ? 'actived' : '']" @click="toggleFilter(state)">
         {{state}}
       </span>
     </span>
@@ -15,16 +22,29 @@ export default {
     filter: {
       type: String,
       required: true,
+    },
+    todos: {
+      type: Array,
+      required: true,
     }
   },
   data () {
     return {
-      state: ['all', 'active', 'completed']
+      states: ['all', 'active', 'completed']
     }
   },
   methods: {
-    clearAllCompleted () { },
-    toggleFilter () { }
+    clearAllCompleted () {
+      this.$emit('clearAllCompleted')
+    },
+    toggleFilter (state) {
+      this.$emit('toggle', state)
+    }
+  },
+  computed: {
+    unFinshedTdoLength () {
+      return this.todos.filter(todo => !todo.completed).length;
+    }
   }
 }
 </script>

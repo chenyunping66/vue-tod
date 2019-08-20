@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-19 16:55:30
- * @LastEditTime: 2019-08-20 09:33:23
+ * @LastEditTime: 2019-08-20 16:26:26
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -21,7 +21,9 @@ export default {
     }
   },
   methods: {
-    deleteTodo () { }
+    deleteTodo () {
+      this.$emit('del', this.todo.id)
+    }
   }
 
 }
