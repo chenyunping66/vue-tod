@@ -3,7 +3,8 @@ import App from './app.vue'
 
 //import './assets/style/test.scss'
 import './assets/style/test.styl' //引入stylus 
-import './assets/images/1.jpg'
+//import './assets/images/1.jpg'
+import './assets/style/global.styl'
 
 const root = document.createElement('div')
 document.body.appendChild(root)
